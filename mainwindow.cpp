@@ -13,3 +13,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_clickme_clicked()
+{
+    if (ui->clickme->text() == "CLICK ME!") {
+        ui->message->setText("you're gay xd");
+        ui->clickme->setText("BYE :)");
+    } else {
+        exit(0);
+    }
+}
+
