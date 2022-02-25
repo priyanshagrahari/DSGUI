@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_clickme_clicked()
 {
     if (ui->clickme->text() == "CLICK ME!") {
-        ui->message->setText("you're gay xd");
+        ui->message->setText("ur mommy gay xd");
         ui->clickme->setText("BYE :)");
     } else {
         exit(0);
