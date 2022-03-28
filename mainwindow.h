@@ -22,6 +22,8 @@ private slots:
 
     void on_stack_pbut_clicked();
 
+    void on_knowmore_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
