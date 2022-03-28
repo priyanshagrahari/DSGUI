@@ -16,7 +16,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_clickme_clicked();
+    void on_array_pbut_clicked();
+
+    void on_ll_pbut_clicked();
+
+    void on_stack_pbut_clicked();
 
 private:
     Ui::MainWindow *ui;
