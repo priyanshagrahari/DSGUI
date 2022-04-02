@@ -26,5 +26,18 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    int active_ds;
+    enum ds {
+        array,
+        ll,
+        stack,
+        queue,
+        btree,
+        bstree,
+        heap,
+        htable
+    } dstructs;
 };
+
 #endif // MAINWINDOW_H
