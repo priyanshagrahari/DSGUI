@@ -6,126 +6,141 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>932</width>
-    <height>435</height>
+    <width>1000</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="cursor">
    <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>DSGUI_test</string>
+   <string>DSGUI</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>160</width>
-      <height>88</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="array_pbut">
-       <property name="text">
-        <string>Array</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="ll_pbut">
-       <property name="text">
-        <string>Linked List</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="stack_pbut">
-       <property name="text">
-        <string>Stack</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QFrame" name="frame">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>10</y>
-      <width>741</width>
-      <height>371</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <widget class="QLabel" name="welcome">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>721</width>
-       <height>351</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>30</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Welcome to DSGUI!</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="begin">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>350</y>
-       <width>721</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>To begin, select a Data Structure from the left pane...</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="knowmore">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>10</y>
-       <width>86</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Know more</string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="buttonList" stretch="0,0,0">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMaximumSize</enum>
+        </property>
+        <item>
+         <widget class="QPushButton" name="array_pbut">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Array</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="ll_pbut">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Linked List</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stack_pbut">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Stack</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QLabel" name="welcome">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>30</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Welcome to DSGUI!</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="begin">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>To begin, select a Data Structure from the left pane...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>932</width>
+     <width>1000</width>
      <height>20</height>
     </rect>
    </property>

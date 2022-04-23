@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "arraywindow.h"
+#include "linkedlistwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,12 +19,11 @@ public:
 
 private slots:
     void on_array_pbut_clicked();
-
     void on_ll_pbut_clicked();
-
     void on_stack_pbut_clicked();
 
-    void on_knowmore_clicked();
+    void q_clicked();
+    //void
 
 private:
     Ui::MainWindow *ui;
@@ -38,6 +39,8 @@ private:
         heap,
         htable
     } dstructs;
+    ArrayWindow arr_win;
+    LinkedListWindow ll_win;
 };
 
 #endif // MAINWINDOW_H
