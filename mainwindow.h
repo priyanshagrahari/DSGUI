@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "arraywindow.h"
 #include "linkedlistwindow.h"
+#include "stackwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -41,6 +42,7 @@ private:
     } dstructs;
     ArrayWindow arr_win;
     LinkedListWindow ll_win;
+    StackWindow stk_win;
 };
 
 #endif // MAINWINDOW_H

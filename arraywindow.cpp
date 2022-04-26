@@ -68,6 +68,7 @@ void ArrayWindow::on_sizeset_clicked()
         QTreeWidgetItem *n = new QTreeWidgetItem(ui->treeWidget);
         n->setText(0, QString::number(i));
         n->setText(1, QString::number(arr[i]));
+        n->setText(2, QString::number((long long)arr+i));
         ui->treeWidget->addTopLevelItem(n);
     }
 }
@@ -80,8 +81,8 @@ void ArrayWindow::on_sizereset_clicked()
     ui->index->setDisabled(true);
     ui->newvalue->setDisabled(true);
     ui->sizeinp->setValue(1);
-    ui->index->clear();
-    ui->newvalue->clear();
+    ui->index->setText("");
+    ui->newvalue->setText("");
     int h = ui->treeWidget->height();
     for (int i = 0; i < h; i ++) {
         delete ui->treeWidget->takeTopLevelItem(0);

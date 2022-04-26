@@ -12,17 +12,22 @@ SOURCES += \
     arraywindow.cpp \
     linkedlistwindow.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    node.cpp \
+    stackwindow.cpp
 
 HEADERS += \
     arraywindow.h \
     linkedlistwindow.h \
-    mainwindow.h
+    mainwindow.h \
+    node.h \
+    stackwindow.h
 
 FORMS += \
     arraywindow.ui \
     linkedlistwindow.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    stackwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

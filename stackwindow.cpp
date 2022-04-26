@@ -1,18 +1,16 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "arraywindow.h"
+#include "stackwindow.h"
+#include "ui_stackwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+StackWindow::StackWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::StackWindow)
 {
     ui->setupUi(this);
-    active_ds = -1;
 
     QPushButton *q = new QPushButton("Queue");
     q->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
     ui->buttonList->addWidget(q);
-    connect(q, SIGNAL(clicked()), SLOT(q_clicked()));
+    //connect(q, SIGNAL(clicked()), SLOT(q_clicked()));
 
     QPushButton *bt = new QPushButton("Binary Tree");
     bt->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
@@ -35,39 +33,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     QPushButton *about = new QPushButton("About");
     ui->buttonList->addWidget(about);
+
+    // stack exclusive
+    ui->stack_pbut->setDisabled(true);
 }
 
-MainWindow::~MainWindow()
+StackWindow::~StackWindow()
 {
     delete ui;
 }
-
-void MainWindow::on_array_pbut_clicked()
-{
-    this->hide();
-    if(this->isMaximized()) arr_win.showMaximized();
-    else arr_win.show();
-}
-
-
-void MainWindow::on_ll_pbut_clicked()
-{
-    this->hide();
-    if(this->isMaximized()) ll_win.showMaximized();
-    else ll_win.show();
-}
-
-
-void MainWindow::on_stack_pbut_clicked()
-{
-    this->hide();
-    if(this->isMaximized()) stk_win.showMaximized();
-    else stk_win.show();
-}
-
-void MainWindow::q_clicked() {
-    ui->welcome->setText("Queue selected...");
-    ui->begin->setVisible(false);
-}
-
-// common part ends
