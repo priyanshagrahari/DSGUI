@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>StackWindow</class>
- <widget class="QMainWindow" name="StackWindow">
+ <class>QueueWindow</class>
+ <widget class="QMainWindow" name="QueueWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,11 +10,8 @@
     <height>600</height>
    </rect>
   </property>
-  <property name="acceptDrops">
-   <bool>true</bool>
-  </property>
   <property name="windowTitle">
-   <string>Stack - DSGUI</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -46,12 +43,6 @@
     </item>
     <item>
      <widget class="QFrame" name="frame">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -64,7 +55,6 @@
          <property name="font">
           <font>
            <pointsize>11</pointsize>
-           <bold>false</bold>
           </font>
          </property>
          <column>
@@ -84,13 +74,13 @@
          <item>
           <widget class="QGroupBox" name="groupBox">
            <property name="title">
-            <string>Push</string>
+            <string>Enqueue</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item>
              <widget class="QLabel" name="label">
               <property name="text">
-               <string>Enter a value to push:</string>
+               <string>Enter a value to enqueue:</string>
               </property>
              </widget>
             </item>
@@ -112,7 +102,7 @@
             <item>
              <widget class="QPushButton" name="pushButton">
               <property name="text">
-               <string>Push</string>
+               <string>Enqueue</string>
               </property>
              </widget>
             </item>
@@ -122,13 +112,13 @@
          <item>
           <widget class="QGroupBox" name="groupBox_2">
            <property name="title">
-            <string>Pop</string>
+            <string>Dequeue</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
              <widget class="QLabel" name="label_2">
               <property name="text">
-               <string>Press Pop to pop a value off the Stack:</string>
+               <string>Press Dequeue to dequeue a value from the Queue:</string>
               </property>
              </widget>
             </item>
@@ -151,7 +141,7 @@
                     </font>
                    </property>
                    <property name="text">
-                    <string>Popped Value</string>
+                    <string>Dequeued Value</string>
                    </property>
                   </widget>
                  </item>
@@ -161,7 +151,7 @@
               <item>
                <widget class="QPushButton" name="pushButton_2">
                 <property name="text">
-                 <string>Pop</string>
+                 <string>Dequeue</string>
                 </property>
                </widget>
               </item>
@@ -183,14 +173,14 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Info about stacks&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Info about queue&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_8">
               <property name="text">
-               <string>Web Link: &lt;a href=&quot;replace me&quot;&gt; Link for Stacks&lt;/a&gt;</string>
+               <string>Web Link: &lt;a href=&quot;replace me&quot;&gt; Link for Queues&lt;/a&gt;</string>
               </property>
               <property name="openExternalLinks">
                <bool>true</bool>

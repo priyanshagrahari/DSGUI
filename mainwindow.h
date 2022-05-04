@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "arraywindow.h"
 #include "linkedlistwindow.h"
+#include "queuewindow.h"
 #include "stackwindow.h"
 
 QT_BEGIN_NAMESPACE
@@ -18,13 +19,22 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    ArrayWindow *arr_win;
+    LinkedListWindow *ll_win;
+    StackWindow *stk_win;
+    QueueWindow *q_win;
+
 private slots:
     void on_array_pbut_clicked();
     void on_ll_pbut_clicked();
     void on_stack_pbut_clicked();
 
     void q_clicked();
-    //void
+    void bt_clicked();
+    void bst_clicked();
+    void h_clicked();
+    void ht_clicked();
+    void about_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -40,9 +50,6 @@ private:
         heap,
         htable
     } dstructs;
-    ArrayWindow arr_win;
-    LinkedListWindow ll_win;
-    StackWindow stk_win;
 };
 
 #endif // MAINWINDOW_H

@@ -9,24 +9,30 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    aboutwindow.cpp \
     arraywindow.cpp \
     linkedlistwindow.cpp \
     main.cpp \
     mainwindow.cpp \
     node.cpp \
+    queuewindow.cpp \
     stackwindow.cpp
 
 HEADERS += \
+    aboutwindow.h \
     arraywindow.h \
     linkedlistwindow.h \
     mainwindow.h \
     node.h \
+    queuewindow.h \
     stackwindow.h
 
 FORMS += \
+    aboutwindow.ui \
     arraywindow.ui \
     linkedlistwindow.ui \
     mainwindow.ui \
+    queuewindow.ui \
     stackwindow.ui
 
 # Default rules for deployment.

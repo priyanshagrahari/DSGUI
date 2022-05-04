@@ -11,6 +11,7 @@ private:
 
 public:
     ll_();
+    ~ll_();
     Node *get_head();
 
     Node *Insert_1(int v);
@@ -42,6 +43,10 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_3_clicked();
+
+    void on_ll_pbut_clicked();
+
+    void about_clicked();
 
 private:
     Ui::LinkedListWindow *ui;

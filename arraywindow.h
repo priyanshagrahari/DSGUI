@@ -26,6 +26,10 @@ private slots:
 
     void on_index_returnPressed();
 
+    void on_ll_pbut_clicked();
+
+    void about_clicked();
+
 private:
     Ui::ArrayWindow *ui;
     int *arr;

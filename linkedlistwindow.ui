@@ -16,23 +16,10 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
-     <layout class="QVBoxLayout" name="buttonList" stretch="0,0,0">
+     <layout class="QVBoxLayout" name="buttonList" stretch="0">
       <property name="sizeConstraint">
        <enum>QLayout::SetMaximumSize</enum>
       </property>
-      <item>
-       <widget class="QPushButton" name="array_pbut">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Array</string>
-        </property>
-       </widget>
-      </item>
       <item>
        <widget class="QPushButton" name="ll_pbut">
         <property name="sizePolicy">
@@ -41,21 +28,14 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="text">
-         <string>Linked List</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="stack_pbut">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+        <property name="minimumSize">
+         <size>
+          <width>111</width>
+          <height>0</height>
+         </size>
         </property>
         <property name="text">
-         <string>Stack</string>
+         <string>Back</string>
         </property>
        </widget>
       </item>

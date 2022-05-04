@@ -1,6 +1,10 @@
 #include "arraywindow.h"
+#include "aboutwindow.h"
 #include "ui_arraywindow.h"
 #include <iostream>
+#include "mainwindow.h"
+#include <QDialog>
+#include <QDialogButtonBox>
 
 ArrayWindow::ArrayWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,35 +12,14 @@ ArrayWindow::ArrayWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPushButton *q = new QPushButton("Queue");
-    q->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(q);
-    //connect(q, SIGNAL(clicked()), SLOT(q_clicked()));
-
-    QPushButton *bt = new QPushButton("Binary Tree");
-    bt->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(bt);
-
-    QPushButton *bst = new QPushButton("Binary Search Tree");
-    bst->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(bst);
-
-    QPushButton *h = new QPushButton("Heap");
-    h->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(h);
-
-    QPushButton *ht = new QPushButton("Hash Table");
-    ht->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(ht);
-
     QSpacerItem *vsp = new QSpacerItem(10, 30);
     ui->buttonList->addItem(vsp);
 
     QPushButton *about = new QPushButton("About");
     ui->buttonList->addWidget(about);
+    connect(about, SIGNAL(clicked()), SLOT(about_clicked()));
 
     // array exculsive
-    ui->array_pbut->setDisabled(true);
 
     arr = nullptr;
     size = 1;
@@ -132,3 +115,40 @@ void ArrayWindow::on_index_returnPressed()
     (*it)->setSelected(true);
 }
 
+
+void ArrayWindow::on_ll_pbut_clicked()
+{
+    QDialog dlg(this);
+    QVBoxLayout la(&dlg);
+    QLabel ed;
+    la.addWidget(&ed);
+    ed.setText("This will take you to the start screen.\nThis array instance will be reset.");
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
+                                                       |QDialogButtonBox::Cancel);
+    connect(buttonBox, SIGNAL(accepted()), &dlg, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), &dlg, SLOT(reject()));
+
+    la.addWidget(buttonBox);
+    dlg.setLayout(&la);
+    dlg.setModal(true);
+
+    if(dlg.exec() == QDialog::Accepted)
+    {
+        on_sizereset_clicked();
+        this->hide();
+        QWidget *parent = this->parentWidget();
+        if (this->isMaximized()) {
+            parent->showMaximized();
+        } else {
+            parent->show();
+        }
+    }
+    dlg.close();
+}
+
+void ArrayWindow::about_clicked() {
+    AboutWindow aw(this);
+    aw.setModal(true);
+    aw.exec();
+}

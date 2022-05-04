@@ -1,4 +1,7 @@
 #include "linkedlistwindow.h"
+#include "aboutwindow.h"
+#include "qdialog.h"
+#include "qdialogbuttonbox.h"
 #include "ui_linkedlistwindow.h"
 #include <algorithm>
 #include <windows.h>
@@ -10,29 +13,14 @@ LinkedListWindow::LinkedListWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPushButton *q = new QPushButton("Queue");
-    q->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(q);
-    //connect(q, SIGNAL(clicked()), SLOT(q_clicked()));
+    QSpacerItem *vsp = new QSpacerItem(10, 30);
+    ui->buttonList->addItem(vsp);
 
-    QPushButton *bt = new QPushButton("Binary Tree");
-    bt->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(bt);
-
-    QPushButton *bst = new QPushButton("Binary Search Tree");
-    bst->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(bst);
-
-    QPushButton *h = new QPushButton("Heap");
-    h->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(h);
-
-    QPushButton *ht = new QPushButton("Hash Table");
-    ht->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    ui->buttonList->addWidget(ht);
+    QPushButton *about = new QPushButton("About");
+    ui->buttonList->addWidget(about);
+    connect(about, SIGNAL(clicked()), SLOT(about_clicked()));
 
     // ll exclusive
-    ui->ll_pbut->setDisabled(true);
     llist = new ll_();
     ui->lineEdit->setValidator(new QIntValidator(INT_MIN, INT_MAX, this));
 }
@@ -46,6 +34,15 @@ LinkedListWindow::~LinkedListWindow()
 
 ll_::ll_() {
     head = nullptr;
+}
+
+ll_::~ll_() {
+    Node *t = head, *q = head;
+    while (t != nullptr) {
+        q = t;
+        t = t->get_n();
+        delete q;
+    }
 }
 
 Node *ll_::get_head() {
@@ -180,3 +177,39 @@ void LinkedListWindow::on_pushButton_3_clicked()
     return;
 }
 
+
+void LinkedListWindow::on_ll_pbut_clicked()
+{
+    QDialog dlg(this);
+    QVBoxLayout la(&dlg);
+    QLabel ed;
+    la.addWidget(&ed);
+    ed.setText("This will take you to the start screen.\nThis linked list instance will be reset.");
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
+                                                       |QDialogButtonBox::Cancel);
+    connect(buttonBox, SIGNAL(accepted()), &dlg, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), &dlg, SLOT(reject()));
+
+    la.addWidget(buttonBox);
+    dlg.setLayout(&la);
+    dlg.setModal(true);
+
+    if(dlg.exec() == QDialog::Accepted)
+    {
+        this->hide();
+        QWidget *parent = this->parentWidget();
+        if (this->isMaximized()) {
+            parent->showMaximized();
+        } else {
+            parent->show();
+        }
+    }
+    dlg.close();
+}
+
+void LinkedListWindow::about_clicked() {
+    AboutWindow aw(this);
+    aw.setModal(true);
+    aw.exec();
+}
