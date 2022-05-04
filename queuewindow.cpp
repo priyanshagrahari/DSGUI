@@ -90,13 +90,13 @@ void QueueWindow::on_ll_pbut_clicked()
 
     if(dlg.exec() == QDialog::Accepted)
     {
-        this->hide();
         QWidget *parent = this->parentWidget();
         if (this->isMaximized()) {
             parent->showMaximized();
         } else {
             parent->show();
         }
+        this->close();
     }
     dlg.close();
 }

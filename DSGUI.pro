@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     aboutwindow.cpp \
     arraywindow.cpp \
+    hashtablewindow.cpp \
     linkedlistwindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 HEADERS += \
     aboutwindow.h \
     arraywindow.h \
+    hashtablewindow.h \
     linkedlistwindow.h \
     mainwindow.h \
     node.h \
@@ -30,6 +32,7 @@ HEADERS += \
 FORMS += \
     aboutwindow.ui \
     arraywindow.ui \
+    hashtablewindow.ui \
     linkedlistwindow.ui \
     mainwindow.ui \
     queuewindow.ui \

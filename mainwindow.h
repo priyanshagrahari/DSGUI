@@ -6,6 +6,7 @@
 #include "linkedlistwindow.h"
 #include "queuewindow.h"
 #include "stackwindow.h"
+#include "hashtablewindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +24,7 @@ public:
     LinkedListWindow *ll_win;
     StackWindow *stk_win;
     QueueWindow *q_win;
+    HashTableWindow *ht_win;
 
 private slots:
     void on_array_pbut_clicked();
