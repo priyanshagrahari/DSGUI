@@ -30,7 +30,7 @@ HEADERS += \
     mainwindow.h \
     node.h \
     queuewindow.h \
-    stackwindow.h
+    stackwindow.h \
     binarytree.h \
     binarysearchtree.h \
     heap.h
