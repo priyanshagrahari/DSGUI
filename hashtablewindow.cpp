@@ -4,6 +4,7 @@
 #include "qdialogbuttonbox.h"
 #include "qlabel.h"
 #include "ui_hashtablewindow.h"
+#include <algorithm>
 
 HashTableWindow::HashTableWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -86,7 +87,6 @@ void HashTableWindow::on_setp_clicked()
         ui->treeWidget->addTopLevelItem(n);
         values.push_back({});
     }
-    ui->set->cleanText();
     ui->set->setDisabled(true);
     ui->setp->setDisabled(true);
 
@@ -108,9 +108,62 @@ void HashTableWindow::on_insp_clicked()
     QTreeWidgetItem *n = new QTreeWidgetItem(heads[index]);
     n->setText(1, QString::number(v));
     heads[index]->addChild(n);
+    children[index].push_back(n);
     ui->treeWidget->clearSelection();
     heads[index]->setExpanded(true);
     n->setSelected(true);
+    ui->del->clear();
+    return;
+}
+
+
+void HashTableWindow::on_seap_clicked()
+{
+    int v = ui->sea->text().toInt();
+    int index = v % hash;
+    if (std::find(values[index].begin(), values[index].end(), v) != values[index].end()) {
+        ui->seas->setText(QString::number(v) + " found under index " + QString::number(index) + "!");
+        ui->treeWidget->clearSelection();
+        for (auto c : children[index]) {
+            if (c->text(1) == QString::number(v)) {
+                heads[index]->setExpanded(true);
+                c->setSelected(true);
+                ui->del->clear();
+            }
+        }
+        return;
+    }
+    ui->seas->setText(QString::number(v) + " not found :(");
+    return;
+}
+
+
+void HashTableWindow::on_delp_clicked()
+{
+    int v = ui->del->text().toInt();
+    int index = v % hash;
+    for (std::vector<QTreeWidgetItem*>::iterator i = children[index].begin(); i < children[index].end(); i ++) {
+        if ((*i)->text(1) == QString::number(v)) {
+            heads[index]->setExpanded(true);
+            ui->dels->setText("Deleted " + QString::number(v) + " under index " + QString::number(index));
+            QTreeWidgetItem *delete_me = (*i);
+            children[index].erase(i);
+            heads[index]->removeChild(delete_me);
+            delete delete_me;
+            values[index].erase(std::find(values[index].begin(), values[index].end(), v));
+            ui->treeWidget->clearSelection();
+            ui->del->clear();
+            return;
+        }
+    }
+    ui->dels->setText(QString::number(v) + " not found :(");
+    return;
+}
+
+
+void HashTableWindow::on_treeWidget_itemSelectionChanged()
+{
+    ui->del->setValue(ui->treeWidget->currentItem()->text(1).toInt());
     return;
 }
 

@@ -25,12 +25,19 @@ private slots:
 
     void on_insp_clicked();
 
+    void on_seap_clicked();
+
+    void on_delp_clicked();
+
+    void on_treeWidget_itemSelectionChanged();
+
 private:
     Ui::HashTableWindow *ui;
 
     int hash;
 
     std::vector<QTreeWidgetItem*> heads;
+    std::map<int, std::vector<QTreeWidgetItem*>> children;
     std::vector<std::vector<int>> values;
 };
 
