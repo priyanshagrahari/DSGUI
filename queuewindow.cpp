@@ -139,8 +139,9 @@ void QueueWindow::on_lineEdit_returnPressed()
 void QueueWindow::on_pushButton_2_clicked()
 {
     // dequeue clicked
-    if (q->get_front() == nullptr) { // FIX THIS PART
+    if (q->get_front() == nullptr) {
         ui->label_3->setText("Queue is empty!");
+        return;
     }
     int val = q->Dequeue();
     ui->label_3->setText(QString::number(val));
