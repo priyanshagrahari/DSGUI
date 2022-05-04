@@ -152,3 +152,9 @@ void ArrayWindow::about_clicked() {
     aw.setModal(true);
     aw.exec();
 }
+
+void ArrayWindow::on_pushButton_clicked()
+{
+    on_newvalue_returnPressed();
+}
+

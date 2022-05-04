@@ -185,7 +185,7 @@
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>420</width>
+                 <width>410</width>
                  <height>0</height>
                 </size>
                </property>
@@ -229,7 +229,7 @@
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>450</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -410,6 +410,13 @@
                        </widget>
                       </item>
                      </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton">
+                      <property name="text">
+                       <string>Set</string>
+                      </property>
+                     </widget>
                     </item>
                     <item>
                      <spacer name="verticalSpacer_4">

@@ -30,6 +30,8 @@ private slots:
 
     void about_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::ArrayWindow *ui;
     int *arr;
