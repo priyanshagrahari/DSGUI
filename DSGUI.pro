@@ -19,7 +19,6 @@ SOURCES += \
     node.cpp \
     queuewindow.cpp \
     stackwindow.cpp \
-    binarytree.cpp \
     binarysearchtree.cpp \
     heap.cpp
 
@@ -33,7 +32,6 @@ HEADERS += \
     node.h \
     queuewindow.h \
     stackwindow.h \
-    binarytree.h \
     binarysearchtree.h \
     heap.h
 

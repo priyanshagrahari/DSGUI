@@ -70,9 +70,11 @@ void BinaryTreeWindow::about_clicked() {
     aw.exec();
 }
 
-void BinaryTreeWindow::drawNode(int x, int y, int val) {
-    s->addEllipse(x-25, y-25, 50, 50, *pen, *brush);
-    QGraphicsTextItem *t = s->addText(QString::number(val));
+void BinaryTreeWindow::drawNode(int x, int y, std::vector<int>::iterator v) {
+    QGraphicsEllipseItem *e = s->addEllipse(x-25, y-25, 50, 50, *pen, *brush);
+    e->setFlag(QGraphicsItem::ItemIsSelectable);
+    el[e] = v;
+    QGraphicsTextItem *t = s->addText(QString::number(*v));
     t->setDefaultTextColor(Qt::white);
     t->setPos(x + 4 - 25, y + 5 - 25);
     t->setScale(2);
@@ -97,24 +99,24 @@ void BinaryTreeWindow::drawTree() {
                 x_n += 2*d;
             }
             else connectNodes(x, y, x_n, y - 100);
-            std::cout << x << ' ';
+            // std::cout << x << ' ';
             x += d;
         }
         x_i = (x_i + (x_i + d)) / 2;
         d *= 2;
-        std::cout << '\n' << x << ' ' << d << '\n';
+        // std::cout << '\n' << x << ' ' << d << '\n';
     }
     x_i = 0; d = 60; y = 0;
     for (int i = h; i >= 1; i --, y -= 100) {
         int x = x_i;
         for (int j = std::pow(2, i - 1) - 1; j < (int)bt_values.size() && j < ((int)std::pow(2, i) - 1); j ++) {
-            drawNode(x, y, bt_values[j]);
-            std::cout << x << ' ';
+            drawNode(x, y, bt_values.begin()+j);
+            // std::cout << x << ' ';
             x += d;
         }
         x_i = (x_i + (x_i + d)) / 2;
         d *= 2;
-        std::cout << '\n' << x << ' ' << d << '\n';
+        // std::cout << '\n' << x << ' ' << d << '\n';
     }
     return;
 }
@@ -125,6 +127,22 @@ void BinaryTreeWindow::on_inp_clicked()
     bt_values.push_back(v);
     s->clear();
     drawTree();
+    return;
+}
+
+
+void BinaryTreeWindow::on_dlp_clicked()
+{
+    QList l = s->selectedItems();
+    if (l.size() > 0) {
+        ui->dll->setText("Deleted " + QString::number(*el[(QGraphicsEllipseItem*)(l[0])]));
+        *el[(QGraphicsEllipseItem*)(l[0])] = bt_values.back();
+        bt_values.erase(bt_values.end() - 1);
+        s->clear();
+        drawTree();
+        return;
+    }
+    ui->dll->setText("Select a node first!");
     return;
 }
 

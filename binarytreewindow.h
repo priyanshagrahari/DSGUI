@@ -23,13 +23,16 @@ private slots:
 
     void on_inp_clicked();
 
+    void on_dlp_clicked();
+
 private:
     Ui::BinaryTreeWindow *ui;
     std::vector<int> bt_values;
+    std::map<QGraphicsEllipseItem*, std::vector<int>::iterator> el;
     QGraphicsScene *s;
     QPen *pen;
     QBrush *brush;
-    void drawNode(int, int, int);
+    void drawNode(int, int, std::vector<int>::iterator);
     void connectNodes(int,int, int,int);
     void drawTree();
 };
