@@ -14,6 +14,7 @@ SOURCES += \
     binarysearchtreewindow.cpp \
     binarytreewindow.cpp \
     hashtablewindow.cpp \
+    heapwindow.cpp \
     linkedlistwindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     binarysearchtreewindow.h \
     binarytreewindow.h \
     hashtablewindow.h \
+    heapwindow.h \
     linkedlistwindow.h \
     mainwindow.h \
     node.h \
@@ -43,6 +45,7 @@ FORMS += \
     binarysearchtreewindow.ui \
     binarytreewindow.ui \
     hashtablewindow.ui \
+    heapwindow.ui \
     linkedlistwindow.ui \
     mainwindow.ui \
     queuewindow.ui \
