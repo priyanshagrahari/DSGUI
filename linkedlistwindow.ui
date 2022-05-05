@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>790</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -243,7 +243,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>27</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

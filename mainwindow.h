@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "arraywindow.h"
+#include "binarysearchtreewindow.h"
 #include "binarytreewindow.h"
 #include "linkedlistwindow.h"
 #include "queuewindow.h"
@@ -27,6 +28,7 @@ public:
     QueueWindow *q_win;
     HashTableWindow *ht_win;
     BinaryTreeWindow *bt_win;
+    BinarySearchTreeWindow *bst_win;
 
 private slots:
     void on_array_pbut_clicked();
