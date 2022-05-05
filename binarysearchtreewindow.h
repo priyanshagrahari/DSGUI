@@ -39,6 +39,8 @@ private:
 
     void bst_insert(int);
     void bst_delete(int);
+    void move_up_l(int);
+    void move_up_r(int);
 };
 
 #endif // BINARYSEARCHTREEWINDOW_H

@@ -8,6 +8,7 @@
 #define MAX 100000
 #define LEFT(a) (2*((a) + 1) - 1)
 #define RIGHT(a) (2*((a) + 1))
+#define PARENT(a) (((a + 1)/2)-1)
 
 BinarySearchTreeWindow::BinarySearchTreeWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -132,19 +133,52 @@ void BinarySearchTreeWindow::bst_insert(int v) {
         tsize = 1;
     }
     else {
-        for (int i = 0; i < (int)bst_values.size(); i ++) {
-            if (bst_values[i] > MAX) continue;
-            if (bst_values[LEFT(i)] > MAX && bst_values[i] >= v) {
-                bst_values[LEFT(i)] = v;
-                tsize = std::max(tsize, LEFT(i) + 1);
-                break;
+        for (int i = 0; i < (int)bst_values.size(); ) {
+            // std::cout << i << ' ';
+            if (v < bst_values[i]) {
+                if (bst_values[LEFT(i)] > MAX) {
+                    bst_values[LEFT(i)] = v;
+                    tsize = std::max(tsize, LEFT(i) + 1);
+                    return;
+                } else {
+                    i = LEFT(i);
+                }
             }
-            if (bst_values[RIGHT(i)] > MAX && bst_values[i] < v) {
-                bst_values[RIGHT(i)] = v;
-                tsize = std::max(tsize, RIGHT(i) + 1);
-                break;
+            else if (v > bst_values[i]) {
+                if (bst_values[RIGHT(i)] > MAX) {
+                    bst_values[RIGHT(i)] = v;
+                    tsize = std::max(tsize, RIGHT(i) + 1);
+                    return;
+                } else {
+                    i = RIGHT(i);
+                }
             }
         }
+    }
+    return;
+}
+
+void BinarySearchTreeWindow::move_up_l(int i_) {
+    if (bst_values[LEFT(i_)] < MAX) {
+        bst_values[PARENT(LEFT(i_))] = bst_values[LEFT(i_)];
+        move_up_l(LEFT(i_));
+
+    }
+    if (bst_values[RIGHT(i_)] < MAX) {
+        bst_values[i_] = bst_values[RIGHT(i_)];
+        move_up_l(RIGHT(i_));
+    }
+    return;
+}
+
+void BinarySearchTreeWindow::move_up_r(int i_) {
+    if (bst_values[RIGHT(i_)] < MAX) {
+        bst_values[PARENT(RIGHT(i_))] = bst_values[RIGHT(i_)];
+        move_up_r(RIGHT(i_));
+    }
+    if (bst_values[LEFT(i_)] < MAX) {
+        bst_values[i_] = bst_values[LEFT(i_)];
+        move_up_r(LEFT(i_));
     }
     return;
 }
@@ -158,12 +192,12 @@ void BinarySearchTreeWindow::bst_delete(int i_) {
     // only one child
     else if (bst_values[LEFT(i_)] > MAX) {
         bst_values[i_] = bst_values[RIGHT(i_)];
-        bst_values[RIGHT(i_)] = MAX + 1;
+        move_up_l(RIGHT(i_));
         return;
     }
     else if (bst_values[RIGHT(i_)] > MAX) {
         bst_values[i_] = bst_values[LEFT(i_)];
-        bst_values[LEFT(i_)] = MAX + 1;
+        move_up_r(LEFT(i_));
         return;
     }
     // two children
@@ -190,7 +224,6 @@ void BinarySearchTreeWindow::on_dlp_clicked()
     QList l = s->selectedItems();
     if (l.size() > 0) {
         ui->dll->setText("Deleted " + QString::number(*el[(QGraphicsEllipseItem*)(l[0])]));
-        tsize --;
         auto x = el[(QGraphicsEllipseItem*)(l[0])];
         int i_ = x - bst_values.begin();
         bst_delete(i_);
