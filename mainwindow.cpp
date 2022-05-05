@@ -82,7 +82,10 @@ void MainWindow::q_clicked() {
 }
 
 void MainWindow::bt_clicked() {
-    std::cout << "bt clicked\n";
+    bt_win = new BinaryTreeWindow(this);
+    this->hide();
+    if(this->isMaximized()) bt_win->showMaximized();
+    else bt_win->show();
 }
 
 void MainWindow::bst_clicked() {
@@ -91,7 +94,12 @@ void MainWindow::bst_clicked() {
 
 void MainWindow::h_clicked() {}
 
-void MainWindow::ht_clicked() {}
+void MainWindow::ht_clicked() {
+    ht_win = new HashTableWindow(this);
+    this->hide();
+    if(this->isMaximized()) ht_win->showMaximized();
+    else ht_win->show();
+}
 
 void MainWindow::about_clicked() {
     AboutWindow aw(this);

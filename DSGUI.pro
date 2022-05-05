@@ -11,25 +11,35 @@ CONFIG += c++11
 SOURCES += \
     aboutwindow.cpp \
     arraywindow.cpp \
+    binarytreewindow.cpp \
+    hashtablewindow.cpp \
     linkedlistwindow.cpp \
     main.cpp \
     mainwindow.cpp \
     node.cpp \
     queuewindow.cpp \
-    stackwindow.cpp
+    stackwindow.cpp \
+    binarysearchtree.cpp \
+    heap.cpp
 
 HEADERS += \
     aboutwindow.h \
     arraywindow.h \
+    binarytreewindow.h \
+    hashtablewindow.h \
     linkedlistwindow.h \
     mainwindow.h \
     node.h \
     queuewindow.h \
-    stackwindow.h
+    stackwindow.h \
+    binarysearchtree.h \
+    heap.h
 
 FORMS += \
     aboutwindow.ui \
     arraywindow.ui \
+    binarytreewindow.ui \
+    hashtablewindow.ui \
     linkedlistwindow.ui \
     mainwindow.ui \
     queuewindow.ui \

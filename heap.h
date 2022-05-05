@@ -1,9 +1,10 @@
-#ifndef HEAPWINDOW_H
-#define HEAPWINDOW_H
+#ifndef HEAP_H
+#define HEAP_H
 
-#include <QMainWindow>
+// Prototype of a utility function to swap two integers
+void swap(int *x, int *y);
 
-//https://www.geeksforgeeks.org/binary-heap/
+// https://www.geeksforgeeks.org/binary-heap/
 class min_heap {
 private:
     int* harr;// pointer to array of elements in heap.
@@ -29,11 +30,10 @@ public:
 
     void delete_key(int data);
 
+    void decrease_key(int i, int new_val);
+
     int extract_min();
 };
 
-namespace Ui {
-class HeapWindow;
-}
 
-#endif //HEAPWINDOW_H
+#endif //HEAP_H

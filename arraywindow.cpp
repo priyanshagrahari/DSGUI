@@ -136,13 +136,13 @@ void ArrayWindow::on_ll_pbut_clicked()
     if(dlg.exec() == QDialog::Accepted)
     {
         on_sizereset_clicked();
-        this->hide();
         QWidget *parent = this->parentWidget();
         if (this->isMaximized()) {
             parent->showMaximized();
         } else {
             parent->show();
         }
+        this->close();
     }
     dlg.close();
 }
@@ -152,3 +152,9 @@ void ArrayWindow::about_clicked() {
     aw.setModal(true);
     aw.exec();
 }
+
+void ArrayWindow::on_pushButton_clicked()
+{
+    on_newvalue_returnPressed();
+}
+
