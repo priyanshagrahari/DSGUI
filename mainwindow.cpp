@@ -89,7 +89,10 @@ void MainWindow::bt_clicked() {
 }
 
 void MainWindow::bst_clicked() {
-    std::cout << "bst clicked\n";
+    bst_win = new BinarySearchTreeWindow(this);
+    this->hide();
+    if(this->isMaximized()) bst_win->showMaximized();
+    else bst_win->show();
 }
 
 void MainWindow::h_clicked() {}

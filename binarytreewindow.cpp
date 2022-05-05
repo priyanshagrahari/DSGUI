@@ -94,11 +94,10 @@ void BinaryTreeWindow::drawTree() {
         int x = x_i;
         int x_n = (x_i + (x_i + d)) / 2;
         for (int k = 0, j = std::pow(2, i - 1) - 1; j < (int)bt_values.size() && j < ((int)std::pow(2, i) - 1); k ++, j ++) {
+            connectNodes(x, y, x_n, y - 100);
             if (k % 2) {
-                connectNodes(x, y, x_n, y - 100);
                 x_n += 2*d;
             }
-            else connectNodes(x, y, x_n, y - 100);
             // std::cout << x << ' ';
             x += d;
         }
