@@ -180,7 +180,7 @@ p, li { white-space: pre-wrap; }
             <item>
              <widget class="QLabel" name="label_8">
               <property name="text">
-               <string>Web Link: &lt;a href=&quot;replace me&quot;&gt; Link for Queues&lt;/a&gt;</string>
+               <string>Web Link: &lt;a href=&quot;https://www.geeksforgeeks.org/queue-data-structure/&quot;&gt; Queue Data Structure - GeeksforGeeks&lt;/a&gt;</string>
               </property>
               <property name="openExternalLinks">
                <bool>true</bool>
@@ -203,7 +203,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>20</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>
