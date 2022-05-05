@@ -5,6 +5,7 @@
 #include "arraywindow.h"
 #include "binarysearchtreewindow.h"
 #include "binarytreewindow.h"
+#include "heapwindow.h"
 #include "linkedlistwindow.h"
 #include "queuewindow.h"
 #include "stackwindow.h"
@@ -29,6 +30,7 @@ public:
     HashTableWindow *ht_win;
     BinaryTreeWindow *bt_win;
     BinarySearchTreeWindow *bst_win;
+    HeapWindow *h_win;
 
 private slots:
     void on_array_pbut_clicked();

@@ -134,7 +134,7 @@ void BinarySearchTreeWindow::bst_insert(int v) {
     else {
         for (int i = 0; i < (int)bst_values.size(); i ++) {
             if (bst_values[i] > MAX) continue;
-            if (bst_values[LEFT(i)] > MAX && bst_values[i] > v) {
+            if (bst_values[LEFT(i)] > MAX && bst_values[i] >= v) {
                 bst_values[LEFT(i)] = v;
                 tsize = std::max(tsize, LEFT(i) + 1);
                 break;
@@ -190,6 +190,7 @@ void BinarySearchTreeWindow::on_dlp_clicked()
     QList l = s->selectedItems();
     if (l.size() > 0) {
         ui->dll->setText("Deleted " + QString::number(*el[(QGraphicsEllipseItem*)(l[0])]));
+        tsize --;
         auto x = el[(QGraphicsEllipseItem*)(l[0])];
         int i_ = x - bst_values.begin();
         bst_delete(i_);

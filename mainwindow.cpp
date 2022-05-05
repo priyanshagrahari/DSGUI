@@ -95,7 +95,12 @@ void MainWindow::bst_clicked() {
     else bst_win->show();
 }
 
-void MainWindow::h_clicked() {}
+void MainWindow::h_clicked() {
+    h_win = new HeapWindow(this);
+    this->hide();
+    if(this->isMaximized()) h_win->showMaximized();
+    else h_win->show();
+}
 
 void MainWindow::ht_clicked() {
     ht_win = new HashTableWindow(this);
